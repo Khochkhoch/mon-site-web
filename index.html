@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoodTracker — Suivre son humeur, jour après jour</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-icon">☺</span> MoodTracker</div>
+    <ul class="nav-links">
+      <li><a href="#probleme">Problème</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#demo">Démo</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+    </ul>
+    <a href="#demo" class="nav-cta">Essayer la démo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow eyebrow-light">Application mobile · Bien-être étudiant</span>
+      <h1>Suivre son humeur,<br>jour après jour.</h1>
+      <p class="lead">Un compagnon émotionnel pour les étudiants&nbsp;: suivi de l'humeur et du stress, analyse claire et conseils personnalisés.</p>
+      <div class="hero-actions">
+        <a href="#demo" class="btn btn-primary">Essayer la démo</a>
+        <a href="#probleme" class="btn btn-ghost">Découvrir le projet</a>
+      </div>
+      <span class="hero-note">Soutenance de projet · Juillet 2026</span>
+    </div>
+    <div class="hero-visual">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="app-topbar">
+            <span class="app-date" id="hero-date">Mardi 1 juillet</span>
+            <span class="app-greeting">Bonjour, Léa</span>
+          </div>
+          <div class="card checkin-card">
+            <p class="card-label" id="hero-mood-label">Comment te sens-tu ?</p>
+            <div class="mood-row" id="hero-mood-row">
+              <span class="mood-dot" data-mood="1" style="background:#e0796b">😞</span>
+              <span class="mood-dot" data-mood="2" style="background:#e3a06b">🙁</span>
+              <span class="mood-dot" data-mood="3" style="background:#e0b45c">😐</span>
+              <span class="mood-dot" data-mood="4" style="background:#8fb98a">🙂</span>
+              <span class="mood-dot" data-mood="5" style="background:#5f9e6b">😄</span>
+            </div>
+          </div>
+          <div class="card streak-card">
+            <span class="streak-num" id="hero-streak">0</span>
+            <span class="streak-label">jours consécutifs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEME -->
+<section id="probleme" class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Le problème</span>
+    <h2>Le mal-être étudiant progresse,<br>mais reste peu suivi.</h2>
+    <p class="section-lead">Entre examens, précarité et isolement, la charge émotionnelle s'accumule — souvent sans repère pour la mesurer ni pour agir à temps.</p>
+    <div class="stat-grid">
+      <div class="stat-card stat-white">
+        <span class="stat-num">37%</span>
+        <p>des étudiants présentent des signes de détresse psychologique.</p>
+      </div>
+      <div class="stat-card stat-dark">
+        <span class="stat-num accent-orange">1 / 5</span>
+        <p>a déjà renoncé à des soins par manque de temps ou d'accès.</p>
+      </div>
+      <div class="stat-card stat-purple">
+        <span class="stat-num accent-purple">68%</span>
+        <p>souhaiteraient un outil simple pour prendre soin de leur mental.</p>
+      </div>
+    </div>
+    <span class="footnote">Chiffres illustratifs · enquêtes santé étudiante (à sourcer en soutenance)</span>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution" class="section section-alt">
+  <div class="section-inner solution-grid">
+    <div>
+      <span class="eyebrow">Notre solution</span>
+      <h2>Un réflexe quotidien de bien-être.</h2>
+      <p class="section-lead">MoodTracker transforme le suivi émotionnel en une routine douce et rapide, en trois gestes.</p>
+      <ul class="feature-list">
+        <li>
+          <span class="feature-icon feature-green">☺</span>
+          <div><strong>Suivre</strong><p>Un check-in humeur &amp; stress en quelques secondes.</p></div>
+        </li>
+        <li>
+          <span class="feature-icon feature-amber">📈</span>
+          <div><strong>Comprendre</strong><p>Des graphiques qui révèlent ses tendances.</p></div>
+        </li>
+        <li>
+          <span class="feature-icon feature-purple">✦</span>
+          <div><strong>Agir</strong><p>Des conseils et ressources adaptés à son état.</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="quote-card">
+      <p>« Prendre soin de soi,<br>un jour à la fois. »</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Démo interactive</span>
+    <h2>Essaie MoodTracker, ici même.</h2>
+    <p class="section-lead">Check-in, analyse, conseils, messages, historique et feedback campus. Tes données restent dans ton navigateur (localStorage) — rien n'est envoyé à un serveur.</p>
+
+    <div class="demo-shell">
+      <div class="demo-tabs">
+        <button class="demo-tab active" data-tab="checkin">01 · Check-in</button>
+        <button class="demo-tab" data-tab="analyse">02 · Analyse</button>
+        <button class="demo-tab" data-tab="conseils">03 · Conseils</button>
+        <button class="demo-tab" data-tab="messages">04 · Messages</button>
+        <button class="demo-tab" data-tab="historique">05 · Historique</button>
+        <button class="demo-tab" data-tab="feedback">06 · Feedback campus</button>
+      </div>
+
+      <div class="demo-panel active" id="panel-checkin">
+        <div class="demo-col">
+          <h3>Check-in émotionnel</h3>
+          <p class="muted">Un geste, cinq humeurs. Une échelle visuelle claire pour noter son état en moins de dix secondes.</p>
+          <div class="mood-picker" id="mood-picker">
+            <button class="mood-btn" data-mood="1" data-emoji="😞" style="--c:#e0796b">😞</button>
+            <button class="mood-btn" data-mood="2" data-emoji="🙁" style="--c:#e3a06b">🙁</button>
+            <button class="mood-btn" data-mood="3" data-emoji="😐" style="--c:#e0b45c">😐</button>
+            <button class="mood-btn" data-mood="4" data-emoji="🙂" style="--c:#8fb98a">🙂</button>
+            <button class="mood-btn" data-mood="5" data-emoji="😄" style="--c:#5f9e6b">😄</button>
+          </div>
+          <label class="field-label" for="stress-range">Niveau de stress</label>
+          <input type="range" min="1" max="5" value="3" id="stress-range" class="stress-range">
+          <div class="range-labels"><span>Calme</span><span>Sous tension</span></div>
+
+          <label class="field-label" for="journal-input">Un mot sur ta journée (optionnel)</label>
+          <input type="text" id="journal-input" placeholder="Ex : partiel de stats, ça compresse un peu.">
+
+          <button class="btn btn-primary" id="save-checkin">Enregistrer mon humeur</button>
+          <p class="save-confirm" id="save-confirm"></p>
+        </div>
+        <div class="demo-col demo-col-side">
+          <div class="mini-card">
+            <span class="mini-label">Série actuelle</span>
+            <span class="mini-num" id="streak-count">0</span>
+            <span class="mini-sub">jours consécutifs</span>
+          </div>
+          <div class="mini-card mini-card-dark">
+            <span class="mini-label">Dernier ressenti</span>
+            <span class="mini-emoji" id="last-mood-emoji">—</span>
+            <span class="mini-sub" id="last-mood-date">Aucun check-in pour l'instant</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-panel" id="panel-analyse">
+        <div class="demo-col">
+          <h3>Analyse &amp; tendances</h3>
+          <p class="muted">Une lecture claire de l'évolution de ton humeur et de ton stress, en un coup d'œil.</p>
+          <div class="chart-controls">
+            <div class="range-toggle" id="range-toggle">
+              <button class="range-btn active" data-range="7">7 jours</button>
+              <button class="range-btn" data-range="30">30 jours</button>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#5f9e6b"></span>Humeur</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#d98a56"></span>Stress</span>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="mood-chart" width="600" height="240"></canvas>
+            <div class="chart-tooltip" id="chart-tooltip"></div>
+          </div>
+          <p class="chart-empty" id="chart-empty">Fais quelques check-in dans l'onglet précédent pour voir ta courbe apparaître.</p>
+        </div>
+        <div class="demo-col demo-col-side">
+          <div class="mini-card">
+            <span class="mini-label">Humeur moyenne</span>
+            <span class="mini-num" id="avg-mood">–</span>
+            <span class="mini-sub">sur 5</span>
+          </div>
+          <div class="mini-card">
+            <span class="mini-label">Facteur récurrent</span>
+            <span class="mini-tag" id="top-factor">—</span>
+            <span class="mini-sub">mot-clé le plus fréquent dans ton journal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-panel" id="panel-conseils">
+        <div class="demo-col demo-col-full">
+          <h3>Conseils personnalisés</h3>
+          <p class="muted">Les conseils s'adaptent à l'humeur et au stress récents.</p>
+          <div class="tips-grid" id="tips-grid">
+            <!-- injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-panel" id="panel-messages">
+        <div class="demo-col demo-col-full chat-col">
+          <h3>Messages · Assistant de soutien</h3>
+          <p class="muted">Un espace pour déposer ce que tu ressens et repartir avec une piste concrète. Les échanges restent sur ton appareil, sauvegardés d'une visite à l'autre.</p>
+          <div class="chat-shell">
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-quick" id="chat-quick">
+              <button class="quick-btn" data-topic="stress">Je stresse pour un examen</button>
+              <button class="quick-btn" data-topic="sommeil">J'ai du mal à dormir</button>
+              <button class="quick-btn" data-topic="triste">Je me sens seul·e</button>
+              <button class="quick-btn" data-topic="bien">Ça va plutôt bien !</button>
+            </div>
+            <div class="chat-input-row">
+              <input type="text" id="chat-input" placeholder="Écris ton message ici...">
+              <button class="btn btn-primary" id="chat-send">Envoyer</button>
+            </div>
+          </div>
+          <p class="chat-disclaimer">Simulation locale à but de démonstration — pas un service médical. En cas d'urgence ou de détresse, contacte le 3114 (numéro national de prévention du suicide, gratuit, 24h/24) ou les services d'urgence.</p>
+        </div>
+      </div>
+
+      <div class="demo-panel" id="panel-historique">
+        <div class="demo-col demo-col-full">
+          <div class="history-header">
+            <h3>Historique complet</h3>
+            <button class="btn btn-ghost-dark" id="reset-history">Réinitialiser mes données de démo</button>
+          </div>
+          <p class="muted">Rien n'est jamais limité à quelques entrées&nbsp;: chaque check-in et chaque retour envoyé reste consultable ici.</p>
+          <div class="history-grid">
+            <div>
+              <h4>Mes check-in</h4>
+              <div class="history-list" id="history-checkins">
+                <p class="muted small">Aucun check-in enregistré pour l'instant.</p>
+              </div>
+            </div>
+            <div>
+              <h4>Retours campus envoyés</h4>
+              <div class="history-list" id="history-feedback">
+                <p class="muted small">Aucun retour envoyé pour l'instant.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-panel" id="panel-feedback">
+        <div class="demo-col demo-col-full">
+          <h3>Feedback campus anonyme</h3>
+          <p class="muted">La parole est libérée, le mode anonyme lève la crainte du jugement. Les retours nourrissent une vision agrégée du climat sur le campus.</p>
+          <div class="feedback-form">
+            <label class="toggle-row">
+              <input type="checkbox" id="anon-toggle" checked>
+              <span>Envoyer en mode anonyme</span>
+            </label>
+            <textarea id="feedback-text" rows="4" placeholder="Comment se passe cette période pour toi ? (charge de travail, ambiance, ressources disponibles...)"></textarea>
+            <button class="btn btn-primary" id="send-feedback">Envoyer anonymement</button>
+            <p class="save-confirm" id="feedback-confirm"></p>
+          </div>
+          <div class="feedback-wall" id="feedback-wall">
+            <p class="muted small">Aperçu (démo locale) des 5 derniers retours — historique complet dans l'onglet dédié :</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMARCHE INNOVATION -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <span class="eyebrow">Démarche d'innovation</span>
+    <h2>Concevoir avec les étudiants, pas pour eux.</h2>
+    <p class="section-lead">Une approche centrée usage, itérative et éthique — l'innovation est autant dans la méthode que dans l'outil.</p>
+    <div class="innov-grid">
+      <div class="innov-card">
+        <span class="innov-num accent-green">01</span>
+        <strong>Écoute terrain</strong>
+        <p>Entretiens et sondages auprès d'étudiants pour cerner les vrais besoins.</p>
+      </div>
+      <div class="innov-card">
+        <span class="innov-num accent-orange">02</span>
+        <strong>Prototypage rapide</strong>
+        <p>Des maquettes cliquables pour tester l'idée avant d'écrire du code.</p>
+      </div>
+      <div class="innov-card">
+        <span class="innov-num accent-purple">03</span>
+        <strong>Tests &amp; itérations</strong>
+        <p>Des retours réguliers qui affinent chaque écran, cycle après cycle.</p>
+      </div>
+      <div class="innov-card innov-card-dark">
+        <span class="innov-num accent-orange">04</span>
+        <strong>Éthique intégrée</strong>
+        <p>Confidentialité et bienveillance pensées dès la conception.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGIES -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Technologies utilisées</span>
+    <h2>Une pile simple, robuste et sûre.</h2>
+    <p class="section-lead">Des choix légers, adaptés à un projet étudiant et pensés pour la protection des données.</p>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <span class="tech-cat">Mobile</span>
+        <strong>App cross-platform</strong>
+        <p>React Native / Flutter — iOS et Android à partir d'une base commune.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-cat">Back-end</span>
+        <strong>API &amp; serveur</strong>
+        <p>Node.js et une API REST pour synchroniser humeur et stress.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-cat">Données</span>
+        <strong>Base chiffrée</strong>
+        <p>PostgreSQL avec chiffrement des données sensibles au repos.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-cat">Visualisation</span>
+        <strong>Graphiques</strong>
+        <p>Une librairie de dataviz pour les courbes d'humeur et de stress.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-cat">Sécurité</span>
+        <strong>Anonymisation</strong>
+        <p>Chiffrement et dissociation des identités pour le feedback campus.</p>
+      </div>
+      <div class="tech-card tech-card-dark">
+        <span class="tech-cat">Conception</span>
+        <strong>Design &amp; prototype</strong>
+        <p>Figma pour les maquettes et le prototype interactif.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="section section-alt">
+  <div class="section-inner">
+    <span class="eyebrow">Feuille de route</span>
+    <h2>Du prototype au déploiement.</h2>
+    <div class="timeline">
+      <div class="timeline-track">
+        <span class="timeline-dot dot-green"></span>
+        <span class="timeline-line"></span>
+        <span class="timeline-dot dot-orange"></span>
+        <span class="timeline-line"></span>
+        <span class="timeline-dot dot-purple"></span>
+        <span class="timeline-line"></span>
+        <span class="timeline-dot dot-dark"></span>
+      </div>
+      <div class="timeline-items">
+        <div class="timeline-item">
+          <span class="eyebrow small accent-green">Phase 1 · Maintenant</span>
+          <strong>MVP fonctionnel</strong>
+          <p>Check-in, suivi du stress et analyse opérationnels.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="eyebrow small accent-orange">Phase 2 · Rentrée 2026</span>
+          <strong>Pilote campus</strong>
+          <p>Test terrain avec un établissement volontaire.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="eyebrow small accent-purple">Phase 3 · 2027</span>
+          <strong>Partenariats santé</strong>
+          <p>Lien avec les services d'écoute et de prévention.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="eyebrow small">Phase 4 · Après</span>
+          <strong>Déploiement élargi</strong>
+          <p>Ouverture à d'autres campus et universités.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / MERCI -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="brand brand-light"><span class="brand-icon">☺</span> MoodTracker</div>
+    <h2>Merci.</h2>
+    <p class="footer-quote">« Prendre soin de soi, un jour à la fois. »</p>
+    <p class="footer-note">Des questions ? Nous serons ravis d'y répondre.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
